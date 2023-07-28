@@ -46,7 +46,7 @@ class Computer:
         total_space = sum(self._file.get("size"))
         if total_space > file.get("size"):
             self.storage_free -= file.get("size")
-            return "f{file['name']} has been saved!"
+            return f"{file['name']} has been saved!"
         else:
             return f"There is not enough space on disk to save {file['name']}."
 
@@ -59,11 +59,11 @@ class Computer:
 
     @classmethod
     def brands(cls):
-        return set([brand for brand in cls.all])
+        return list(set([brand for brand in cls.all]))
 
     @classmethod
     def models(cls):
-        return set([model for model in cls.all])
+        return [*set([model for model in cls.all])]
 
     @classmethod
     def largest_memory(cls):
